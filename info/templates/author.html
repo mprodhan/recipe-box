@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Author's Bio</title>
+</head>
+<header>
+        <h1>{{author.name}}</h1><br>
+
+        <h3>Chef's Bio:</h3>
+        <p>{{author.bio}}</p>
+</header>
+<body>
+		<h4>Recipes</h4>
+		<ol>
+			{% for recipe in recipes %}
+				<h3>
+                    <a href="/recipebox/{{recipe.id}}">
+                        <b>{{ recipe.title }}</b>
+                    </a>
+                </h3>
+        </ol>
+{% endfor %}
+</body>
+</html>

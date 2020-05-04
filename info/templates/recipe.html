@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recipes</title>
+</head>
+<body>
+    <ul>
+
+        <li>
+            <h1>{{recipe.title}} | by {{ recipe.author }}</h1>
+            <a href="/author/{{ recipe.author.id }}"> {{ data.author }} Chef's Bio:</a>
+        </li>
+        <br>
+        <ul>
+            <H2>Total Time</H2>
+            {{ recipe.total_time }}
+        </ul
+
+        <ul>
+            <H2>Description</H2>
+            {{ recipe.description }}
+        </ul>
+
+        <ul>
+            <h2>Instructions</h2>
+            {{ recipe.instructions }}
+        </ul>
+
+    </ul>
+
+</body>
+</html>

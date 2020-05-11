@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 from django.utils import timezone
 
 # Create your models here.
@@ -16,7 +18,7 @@ class Author(models.Model):
 class Recipe(models.Model):
 	author = models.ForeignKey(Author, on_delete=models.CASCADE)
 	title = models.CharField(max_length=50)
-	total_time = models.DateTimeField(default=timezone.now)
+	total_time = models.CharField(max_length=50)
 	instructions = models.TextField(default='')
 	description = models.CharField(max_length=300, default='')
 

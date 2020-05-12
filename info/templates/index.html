@@ -12,10 +12,26 @@
         {% for recipe in recipes %}
 
         <li>
-
             <a href="/recipe/{{recipe.id}}">{{ recipe.title }} | by {{ recipe.author }}</a>
         </li>
+
         {% endfor %}
     </ul>
+        <ul>
+            <div id="top_menu">
+                <a href="/recipeadd">
+                    <button>Add Recipe Here</button>
+                </a><p>
+                <a href="/authoradd">
+                    <button>Add Author Here</button>
+                </a>
+            </div>
+        </ul>
+
+        <u>
+            Are you logged in? {{ request.user.is_authenticated }}
+        </u>
+    </ul>
+
 </body>
 </html>

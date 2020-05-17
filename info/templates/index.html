@@ -8,14 +8,16 @@
 </head>
 <body>
     <h1>Recipe Box!</h1>
-    <ul>
-        {% for recipe in recipes %}
-
-        <li>
-
-            <a href="/recipe/{{recipe.id}}">{{ recipe.title }} | by {{ recipe.author }}</a>
-        </li>
-        {% endfor %}
+    <{% for recipe in recipes %}
+        <li><a href='recipe/{{ recipe.id }}'>{{ recipe.title }}</a></li>
+        <li><a href='editrecipe/{{ recipe.id}}'>edit</a></li>
+    {% endfor %}
     </ul>
+    <a href="/addRecipe/">
+    <button>Add Recipe</button>
+    </a>
+    <a href="/addAuthor/">
+    <button>Add Author</button>
+    </a>
 </body>
 </html>

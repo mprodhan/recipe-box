@@ -1,13 +1,10 @@
-from .forms import AuthorAddForm, RecipeAddForm, LoginForm, CreatUserForm, EditRecipeForm
-from django.shortcuts import render, reverse, HttpResponseRedirect, HttpResponse
+from .forms import CreateAuthorForm, CreateRecipeForm, LoginForm, CreatUserForm, EditRecipeForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.shortcuts import render, HttpResponseRedirect, reverse, HttpResponse
 from django.forms.models import model_to_dict
 from recipeBox.models import Author, Recipe
-
-from info.models import Author, Recipe
-from info.forms import RecipesAddForm, AuthorAddForm, LoginForm
 
 # Create your views here.
 def loginview(request):
@@ -58,9 +55,9 @@ def author(request, author_id):
 
 @login_required()
 def new_author(request, **kwargs):
-
+dsdf
     if request.method == "POST":
-        form = AddAuthorForm(request.POST)
+        form = CreateAuthorForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
 
@@ -73,7 +70,7 @@ def new_author(request, **kwargs):
                 bio=data['bio']
             )
             return HttpResponseRedirect(reverse('homepage'))
-    form = AddAuthorForm()
+    form = CreateAuthorForm()
     return render(request, "create_author.html", {'form': form})
 
 
@@ -82,7 +79,7 @@ def new_recipe(request):
     html = 'create_recipe.html'
 
     if request.method == 'POST':
-        form = AddRecipeForm(request.POST)
+        form = CreateRecipeForm(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data
@@ -95,7 +92,7 @@ def new_recipe(request):
             )
             return HttpResponseRedirect(reverse('homepage'))
 
-    form = AddRecipeForm()
+    form = CreateRecipeForm()
     return render(request, html, {'form': form})
 
 

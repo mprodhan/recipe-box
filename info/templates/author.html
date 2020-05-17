@@ -23,5 +23,15 @@
                 </h3>
         </ol>
 {% endfor %}
+	<h3>{{ author.name }}'s Favorites:</h3>
+	<br />
+	<ul>
+		{% for favorite in favorites %}
+		<li><a href='/recipe/{{favorite.id}}'>{{favorite.title}}</a></li>
+		{% endfor%}
+	</ul>
+	<a href="/">
+		<button>Home</button>
+	</a>
 </body>
 </html>

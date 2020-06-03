@@ -28,7 +28,16 @@
             <h2>Instructions</h2>
             {{ recipe.instructions }}
         </ul>
+        {% if request.user.is_authenticated %}
+        <ul>
+            <h2>Favorite</h2>
+            <a href="/favorite/{{recipe.id}}/">Click Here</a>
+        </ul>
 
+        <ul>
+            <a href="/unfavorite/{{recipe.id}}/">click here to unfave</a>
+        </ul>
+        {% endif %}
     </ul>
 
 </body>
